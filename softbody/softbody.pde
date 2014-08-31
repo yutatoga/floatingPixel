@@ -24,10 +24,11 @@ class SoftBody{
   // soft-body dynamics
   float organicConstant = 1;
   
-   SoftBody(float x, float y, color col){
+   SoftBody(float x, float y, float r, color col){
     //center shape in window
     centerX = x;
     centerY = y;
+    radius = r;
     bodyColor = col;
     // iniitalize frequencies for corner nodes
     for (int i=0; i<nodes; i++){
@@ -56,9 +57,10 @@ class SoftBody{
   }
   void moveShape() {
     //move center point
-    float deltaX = mouseX-centerX;
-    float deltaY = mouseY-centerY;
-  
+//    float deltaX = mouseX-centerX;
+//    float deltaY = mouseY-centerY;
+    float deltaX = random(-200, 200);
+    float deltaY = random(-100, -10);
     // create springing effect
     deltaX *= springing;
     deltaY *= springing;
@@ -86,5 +88,14 @@ class SoftBody{
   void update(){
       drawShape();
       moveShape();
+  }
+  float getCenterX(){
+    return centerX;
+  }
+  float getCenterY(){
+    return centerY;
+  }
+  float getRadius(){
+    return radius;
   }
 }
