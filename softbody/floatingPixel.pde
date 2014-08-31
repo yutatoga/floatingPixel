@@ -27,12 +27,14 @@ void draw() {
 //  s2.update();
   inOrOut(list);
   println(list.size());
+
 }
 
 void inOrOut(ArrayList<SoftBody> listSoftBody){
   for (int i=0; i<listSoftBody.size(); i++){
     if(listSoftBody.get(i).getCenterY()+listSoftBody.get(i).getRadius() < 0){
       listSoftBody.remove(i);
+      list.add(new SoftBody(random(0, displayWidth), displayHeight+random(38, 50), random(2, 37), color(127, 255, 255, 127)));
     }
   }
 }
